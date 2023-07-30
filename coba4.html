@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    /* .monster {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      background: black;
+    } */
+
+    main {
+      margin: 1000px auto;
+    }
+
+    /* @keyframes play {
+      100% {
+        background: red;
+      }
+    }
+
+    .animation {
+      animation: play 2.8s steps(15);
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+
+    .monster:after {
+      position: fixed;
+      content: 'Keep scrolling!';
+      left: 50%;
+      top: 50%;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity .4s;
+    }
+
+    .monster:not(.animation):after {
+      opacity: 1;
+    } */
+  </style>
+</head>
+
+<body>
+  <main>
+    <h2 class="animate__animated">GGGGGGGGGGGGG</h2>
+    <h3 id="monster" class="animate__animated">OOOOOO</h3>
+    
+  </main>
+  
+
+  <script>
+    const element = document.getElementById('monster');
+    const observer = new IntersectionObserver(entries => {
+      element.classList.toggle('animate__zoomInDown', entries[0].isIntersecting);
+    });
+    observer.observe(element);
+    
+    const el = document.querySelector('.animate__animated');
+    const obs = new IntersectionObserver(entries => {
+      el.classList.toggle('animate__bounce', entries[0].isIntersecting);
+    });
+    obs.observe(el);
+  </script>
+
+</body>
+
+</html>

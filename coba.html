@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    [data-inviewport] {
+      /* THIS DEMO ONLY */
+      /* width: 100px; */
+      /* height: 100px; */
+      /* background: #0bf; */
+      margin: 150vh 0;
+    }
+
+
+    /* inViewport */
+
+    /* [data-inviewport="fade-mantul"].animate__bounce{
+      transform: rotate(180deg);
+      opacity: 1;
+    } */
+  </style>
+
+  
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>hello</h1>
+  Scroll down...
+  <h5 data-inviewport class="animate__animated">Ggggggg</h5>
+  <h5 id="www" class="animate__animated">wwwww</h5>
+
+  coba sdd
+
+  <script>
+    const inViewport = (entries, observer) => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle("animate__bounce", entry.isIntersecting);
+        // entry.target.classList.toggle("animate__animated", entry.isIntersecting);
+      });
+    };
+
+    const Obs = new IntersectionObserver(inViewport);
+    const obsOptions = {
+   
+    }; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
+
+    // Attach observer to every [data-inviewport] element:
+    document.querySelectorAll("#www").forEach(el => {
+      Obs.observe(el, obsOptions);
+    });
+    // document.querySelectorAll('[data-inviewport]').forEach(el => {
+    //   Obs.observe(el, obsOptions);
+    // });
+
+
+
+  </script>
+
+
+</body>
+
+</html>
